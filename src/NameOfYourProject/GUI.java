@@ -119,29 +119,33 @@ public class GUI implements ActionListener {
         
         page4Panel = new JPanel();
         page4Panel.setBorder(BorderFactory.createEmptyBorder(200, 200, 200, 200));
-        page4Panel.setLayout(new GridBagLayout());  // Changed layout to GridBagLayout
+        page4Panel.setLayout(new BorderLayout());  // Changed layout to GridBagLayout
 
        
 
-        pages4Label = new JLabel("This is where you will be able to add the details of your starter");
+        pages4Label = new JLabel("This is where you will be able to add the details of your starter: ");
         page4Panel.add(pages4Label);
 
-        JLabel flour = new JLabel("Type of flour:");
-        page4Panel.add(flour);
+        //JLabel flour = new JLabel("Type of flour:");
+       // page4Panel.add(flour);
 
-        JLabel water = new JLabel("Amount of water added per feeding:");
-        page4Panel.add(water);
+        //JLabel water = new JLabel("Amount of water added per feeding:");
+        //page4Panel.add(water);
 
-        JLabel notes = new JLabel("Notes about your starter:");
-        page4Panel.add(notes);
+        //JLabel notes = new JLabel("Notes about your starter:");
+       // page4Panel.add(notes);
 
         buttonsaveDetails = new JButton("Save details");
-        page4Panel.add(buttonsaveDetails);
-
        
         gotomenu4 = new JButton("Go back to menu");
         gotomenu4.addActionListener(this);
-        page4Panel.add(gotomenu4);
+
+        //placing buttons on page 4
+        JPanel buttonPanelpage4 = new JPanel();
+        buttonPanelpage4.setLayout(new FlowLayout());  // This will place the buttons next to each other
+        buttonPanelpage4.add(buttonsaveDetails);
+        buttonPanelpage4.add(gotomenu4);
+        page4Panel.add(buttonPanelpage4, BorderLayout.SOUTH);
 
         // Add all pages to the panelContainer
         panelContainer.add(page1Panel, "Page 1");
@@ -177,7 +181,7 @@ public class GUI implements ActionListener {
         }
         //button from page 2 to page 4
         else if (e.getSource() == buttonStarterDone) {
-            cardLayout.show(panelContainer, "Page 4");  // Switch back to page 1
+            cardLayout.show(panelContainer, "Page 4");  // Switch from page 2 to page 4
         }
         // Button to go from page 4 to page 1
         else if (e.getSource() == gotomenu4) {
